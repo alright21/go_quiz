@@ -37,8 +37,8 @@ func readFile(filename string, questions *[]string, answers *[]int) (){
 		}
 
 		*questions = append(*questions, record[0])
-		answer, conversion_error := strconv.Atoi(record[1])
-		if conversion_error != nil {
+		answer, conversionError := strconv.Atoi(record[1])
+		if conversionError != nil {
 			log.Fatalln("Error in converting string to int", error)
 		}
 		*answers = append(*answers, answer)
@@ -61,7 +61,7 @@ func main(){
 		fmt.Scanln(&result)
 
 		if result == answers[i]{
-			rightAnswers += 1
+			rightAnswers++
 			fmt.Println("Correct")
 		}else {
 			fmt.Println("Wrong")
